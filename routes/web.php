@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', 'Message\MessageController@index');
+Route::get('/', 'Message\MessageController@index')->name('index');
 Route::post('/registration', 'Auth\RegisterController@register');
-Route::get('/registration', 'Auth\RegisterController@showRegistrationForm');
+Route::get('/registration', 'Auth\RegisterController@showRegistrationForm')->name('registration');
 Route::get('/registration-success', 'Auth\RegisterController@registrationSuccess');
-Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
