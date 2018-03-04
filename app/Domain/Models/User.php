@@ -23,6 +23,11 @@ final class User implements Entity
     private $username;
 
     /**
+     * @var string
+     */
+    private $rememberToken;
+
+    /**
      * User constructor.
      * @param string $id
      * @param null|string $passwordHash
@@ -59,6 +64,14 @@ final class User implements Entity
         );
 
         return $user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRememberToken(): ?string
+    {
+        return $this->rememberToken;
     }
 
     /**

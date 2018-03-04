@@ -5,19 +5,15 @@
     <div class="span4"></div>
     <div class="span3">
 
-
         @if(count( $errors ) > 0 )
-            @foreach ($errors->all() as $error)
-                <div>{{ $error }}</div>
-            @endforeach
+            <div class="alert alert-error">
+                @foreach ($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                @endforeach
+            </div>
         @endif
 
-
-
-
-
         {{ Form::open(['url' => 'login', 'class' => 'form-horizontal']) }}
-
 
         <div class="control-group">
             <b>Авторизация</b>
@@ -36,6 +32,7 @@
             </label>
             <button type="submit" class="btn btn-primary">Вход</button>
         </div>
+
         {{ Form::close() }}
 
     </div>

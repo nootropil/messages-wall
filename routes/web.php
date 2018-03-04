@@ -17,3 +17,4 @@ Route::get('/registration', 'Auth\RegisterController@showRegistrationForm');
 Route::get('/registration-success', 'Auth\RegisterController@registrationSuccess');
 Route::get('/login', 'Auth\LoginController@showLoginForm');
 Route::post('/login', 'Auth\LoginController@login');
+Route::post('/logout', 'Auth\LoginController@logout');

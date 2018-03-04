@@ -81,6 +81,6 @@ class UserAdapter implements Authenticatable
      */
     public function getRememberTokenName()
     {
-        return 'remember';
+        return 'remember_token';
     }
 }

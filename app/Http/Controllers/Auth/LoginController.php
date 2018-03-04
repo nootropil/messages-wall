@@ -60,6 +60,16 @@ class LoginController extends Controller
         $userAdapter->setRememberToken($request->get('remember'));
         Auth::login($userAdapter);
 
-        return $this->sendLoginResponse($request);
+        return redirect('/');
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/');
     }
 }
