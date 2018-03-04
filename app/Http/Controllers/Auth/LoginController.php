@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Domain\Repositories\User\UserReadRepository;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
+use App\Application\Adapters\User\UserAdapter;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -21,19 +25,41 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
+     * @var UserReadRepository
      */
-    protected $redirectTo = '/home';
+    private $userReadRepository;
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * LoginController constructor.
+     * @param UserReadRepository $userReadRepository
      */
-    public function __construct()
+    public function __construct(UserReadRepository $userReadRepository)
     {
+        $this->userReadRepository = $userReadRepository;
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * @param LoginRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     */
+    public function login(LoginRequest $request)
+    {
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        $this->incrementLoginAttempts($request);
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        $user = $this->userReadRepository->fetchByUsername($request->get('username'));
+        $userAdapter = new UserAdapter($user);
+        $userAdapter->setRememberToken($request->get('remember'));
+        Auth::login($userAdapter);
+
+        return $this->sendLoginResponse($request);
     }
 }

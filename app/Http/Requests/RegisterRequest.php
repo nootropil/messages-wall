@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Domain\Repositories\User\UserReadRepository;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterUser extends FormRequest
+class RegisterRequest extends FormRequest
 {
     /**
      * @var UserReadRepository
@@ -94,7 +94,7 @@ class RegisterUser extends FormRequest
             /* @var $validator \Illuminate\Validation\Validator */
             $data = $validator->getData();
 
-            if ($this->readRepository->existsByUsername($data['username'])) {
+            if ($data['username'] !== null && $this->readRepository->existsByUsername($data['username'])) {
                 $validator->errors()->add('username', 'Пользователь с таки именем уже существует');
             }
         });

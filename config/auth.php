@@ -61,14 +61,10 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
+            \App\Application\Adapters\User\UserAdapter::class,
+            'driver' => 'database',
+            'table' => 'user',
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*

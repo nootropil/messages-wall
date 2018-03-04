@@ -4,7 +4,8 @@
 
     <div class="span4"></div>
     <div class="span8">
-        {{ Form::open(array('url' => 'registration', 'class' => 'form-horizontal')) }}
+
+        {{ Form::open(['url' => 'registration', 'class' => 'form-horizontal']) }}
         <div class="control-group">
             <b>Регистрация</b>
         </div>
@@ -27,6 +28,7 @@
             <button type="submit" class="btn btn-primary">Отправить</button>
         </div>
         {{ Form::close() }}
+
     </div>
 
 @endsection
