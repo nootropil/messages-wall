@@ -48,8 +48,8 @@ final class User implements Entity
      */
     public static function registerNew(
         string $id,
-        string $password,
-        string $username
+        string $username,
+        string $password
     ): self
     {
         $user =  new self(

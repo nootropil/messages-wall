@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'Message\MessageController@index');
+Route::post('/registration', 'Auth\RegisterController@register');
+Route::get('/registration', 'Auth\RegisterController@showRegistrationForm');
+Route::get('/registration-success', 'Auth\RegisterController@registrationSuccess');

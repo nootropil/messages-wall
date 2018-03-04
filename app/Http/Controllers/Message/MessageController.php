@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Message;
 
 use App\Domain\Repositories\Message\MessageReadRepository;
 use App\Domain\Services\Message\MessageServiceInterface;
-use App\User;
 use App\Http\Controllers\Controller;
 
 class MessageController extends Controller
