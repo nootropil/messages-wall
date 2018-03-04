@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 final class LaravelSqlMessageRepository implements MessageRepository
 {
-    const TABLE_NAME = 'emergency_voice_message';
+    const TABLE_NAME = 'message';
 
     /**
      * @var MessageHydrator
