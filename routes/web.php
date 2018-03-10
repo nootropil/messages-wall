@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'Message\MessageController@index')->name('index');
+Route::post('/', 'Message\MessageController@create');
 Route::post('/registration', 'Auth\RegisterController@register');
 Route::get('/registration', 'Auth\RegisterController@showRegistrationForm')->name('registration');
 Route::get('/registration-success', 'Auth\RegisterController@registrationSuccess');

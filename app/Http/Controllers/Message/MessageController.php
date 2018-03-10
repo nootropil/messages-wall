@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Message;
 
+use App\Application\Helpers\DataFilter;
 use App\Domain\Repositories\Message\MessageReadRepository;
 use App\Domain\Services\Message\MessageServiceInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateMessageRequest;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -28,6 +31,7 @@ class MessageController extends Controller
     {
         $this->service = $service;
         $this->readRepository = $readRepository;
+        ///$this->middleware('guest')->except('index');
     }
 
     /**
@@ -38,6 +42,22 @@ class MessageController extends Controller
         $messages = $this->readRepository->fetchAllAsArrayWithUsername();
 
         return view('message.index', ['messages' => $messages]);
+    }
+
+    /**
+     * @param CreateMessageRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function create(CreateMessageRequest $request)
+    {
+        $this->service->create(
+            [
+                'body' => DataFilter::deepTrimString($request->input('body')),
+                'userId' => Auth::user()->getAuthIdentifier(),
+            ]
+        );
+
+        return redirect('/');
     }
 
 }

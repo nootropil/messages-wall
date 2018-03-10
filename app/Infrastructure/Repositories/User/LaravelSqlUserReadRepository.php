@@ -28,7 +28,7 @@ final class LaravelSqlUserReadRepository implements UserReadRepository
      */
     public function fetchByUsername(string $username): ?User
     {
-        $row = DB::selectOne('select * from ' . LaravelSqlUserRepository::TABLE_NAME . ' where username = :username', ['username' => $username]);
+        $row = DB::selectOne('SELECT * FROM ' . LaravelSqlUserRepository::TABLE_NAME . ' WHERE username = :username', ['username' => $username]);
         if ($row) {
             $row = json_decode(json_encode($row), true);
 
@@ -44,7 +44,7 @@ final class LaravelSqlUserReadRepository implements UserReadRepository
      */
     public function existsByUsername(string $username): bool
     {
-        $row = DB::selectOne('select * from ' . LaravelSqlUserRepository::TABLE_NAME . ' where username = :username', ['username' => $username]);
+        $row = DB::selectOne('SELECT * FROM ' . LaravelSqlUserRepository::TABLE_NAME . ' WHERE username = :username', ['username' => $username]);
 
         return !empty($row);
     }
