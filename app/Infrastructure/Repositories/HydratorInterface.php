@@ -8,6 +8,7 @@ use App\Domain\Contract\Entity;
 interface HydratorInterface
 {
     /**
+     *
      * @param array $columns
      * @return Entity
      */

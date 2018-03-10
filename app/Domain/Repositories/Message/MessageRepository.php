@@ -9,6 +9,7 @@ interface MessageRepository
 {
     /**
      * @param Message $model
+     * @return void
      */
     public function add(Message $model): void;
 
@@ -17,5 +18,5 @@ interface MessageRepository
      *
      * @return string
      */
-    public function nextIdentity() : string;
+    public function nextIdentity(): string;
 }

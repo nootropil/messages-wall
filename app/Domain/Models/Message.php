@@ -4,7 +4,9 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 
-final class Message
+use App\Domain\Contract\Entity;
+
+final class Message implements Entity
 {
     /**
      * @var string
@@ -22,6 +24,8 @@ final class Message
     private $body;
 
     /**
+     * Автоинкремент. Используется для сортировки
+     *
      * @var int
      */
     private $increment;

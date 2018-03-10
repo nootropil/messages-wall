@@ -31,7 +31,6 @@ class MessageController extends Controller
     {
         $this->service = $service;
         $this->readRepository = $readRepository;
-        ///$this->middleware('guest')->except('index');
     }
 
     /**

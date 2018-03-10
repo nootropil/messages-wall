@@ -14,7 +14,6 @@ class RegistrationPageTest extends TestCase
     public function testShowingForGuests()
     {
         $response = $this->get('/registration');
-
         $response->assertStatus(200);
         $response->assertSee('<li class=active><a href="/registration">Регистрация</a></li>');
         $response->assertSee('</form>');

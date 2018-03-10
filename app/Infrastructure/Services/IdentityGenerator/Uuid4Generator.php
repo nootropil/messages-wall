@@ -6,8 +6,8 @@ namespace App\Infrastructure\Service\IdentityGenerator;
 final class Uuid4Generator
 {
     /**
-     * Generate Uuid
-     * 
+     * Генерация Uuid v4
+     *
      * @return string
      */
     public function generate() : string
@@ -16,7 +16,6 @@ final class Uuid4Generator
         $bytes[6] = chr((ord($bytes[6]) & 0x0f) | 0x40);
         $bytes[8] = chr((ord($bytes[8]) & 0x3f) | 0x80);
         $hex = bin2hex($bytes);
-
         $fields = [
             'time_low' => substr($hex, 0, 8),
             'time_mid' => substr($hex, 8, 4),

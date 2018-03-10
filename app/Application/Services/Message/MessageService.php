@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Application\Services\Message;
 
@@ -27,7 +27,12 @@ final class MessageService implements MessageServiceInterface
     }
 
     /**
+     * Создание нового сообщения
+     * array['userId'] id пользователя
+     * array['body'] сообщение
+     *
      * @param array $data
+     * @return void
      */
     public function create(array $data): void
     {

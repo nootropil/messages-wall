@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Infrastructure\Repositories\User;
 
@@ -40,9 +40,9 @@ final class LaravelSqlUserRepository implements UserRepository
      *
      * @return string
      */
-    public function nextIdentity() : string
+    public function nextIdentity(): string
     {
         $uuidGenerator = new Uuid4Generator();
         return $uuidGenerator->generate();
-    }  
+    }
 }

@@ -14,7 +14,6 @@ class RegistrationSuccessPageTest extends TestCase
     public function testShowingForGuests()
     {
         $response = $this->get('/registration-success');
-
         $response->assertStatus(200);
         $response->assertSeeText('Поздравляем! Вы успешно зарегистрировались.');
     }

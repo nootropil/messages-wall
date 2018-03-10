@@ -5,6 +5,8 @@ namespace App\Application\Helpers;
 final class DataFilter
 {
     /**
+     * Удаление пробелов с концов строки
+     *
      * @param string $string
      * @return string
      */

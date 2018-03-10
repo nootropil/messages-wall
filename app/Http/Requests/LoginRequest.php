@@ -50,7 +50,7 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Правила валидации
      *
      * @return array
      */
@@ -63,7 +63,7 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Set custom messages for validator errors.
+     * Описание ошибок
      *
      * @return array
      */
@@ -76,7 +76,7 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Configure the validator instance.
+     * Дополнительная валидация
      *
      * @param  \Illuminate\Validation\Validator  $validator
      * @return void
@@ -90,6 +90,7 @@ class LoginRequest extends FormRequest
 
 
             if ($data['username'] != null && $data['password'] != null) {
+                //проверка существования пользователя
                 if (!$this->readRepository->existsByUsername($data['username'])) {
                     $validator->errors()->add('username', $message);
                     return;
@@ -97,6 +98,7 @@ class LoginRequest extends FormRequest
 
                 $user = $this->readRepository->fetchByUsername($data['username']);
 
+                //проверка правильности пароля
                 if (!password_verify($data['password'], $user->getPasswordHash())) {
                     $validator->errors()->add('username', $message);
                 }

@@ -27,7 +27,12 @@ final class RegistrationService implements RegistrationServiceInterface
     }
 
     /**
+     * Регистрация нового пользователя
+     * array['username'] имя пользователя
+     * array['password'] пароль
+     *
      * @param array $data
+     * @return void
      */
     public function register(array $data): void
     {

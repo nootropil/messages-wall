@@ -23,6 +23,8 @@ final class LaravelSqlUserReadRepository implements UserReadRepository
     }
 
     /**
+     * Получить пользователя по имени
+     *
      * @param string $username
      * @return User|null
      */
@@ -39,6 +41,8 @@ final class LaravelSqlUserReadRepository implements UserReadRepository
     }
 
     /**
+     * Проверить существование пользователя по имени
+     *
      * @param string $username
      * @return bool
      */

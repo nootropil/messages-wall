@@ -28,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         /* Message */
-        $this->app->bind(MessageServiceInterface::class,MessageService::class);
+        $this->app->bind(MessageServiceInterface::class, MessageService::class);
         /* User */
-        $this->app->bind(RegistrationServiceInterface::class,RegistrationService::class);
+        $this->app->bind(RegistrationServiceInterface::class, RegistrationService::class);
     }
 }

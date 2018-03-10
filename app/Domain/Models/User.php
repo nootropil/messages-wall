@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
+
 use App\Domain\Contract\Entity;
 
 final class User implements Entity
@@ -10,7 +11,7 @@ final class User implements Entity
     /**
      * @var string
      */
-    private $id;   
+    private $id;
 
     /**
      * @var string|null
@@ -23,6 +24,8 @@ final class User implements Entity
     private $username;
 
     /**
+     * Необходим для имплементации интерфейса Authenticatable в Laravel для хранения токена сессии
+     *
      * @var string
      */
     private $rememberToken;
@@ -57,7 +60,7 @@ final class User implements Entity
         string $password
     ): self
     {
-        $user =  new self(
+        $user = new self(
             $id,
             password_hash($password, PASSWORD_DEFAULT),
             $username

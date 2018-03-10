@@ -14,7 +14,6 @@ class IndexPageTest extends TestCase
     public function testShowingForGuests()
     {
         $response = $this->get('/');
-
         $response->assertStatus(200);
         $response->assertSee('<li class=active><a href="/">Главная</a></li>');
         $response->assertDontSee('</form>');

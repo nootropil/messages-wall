@@ -40,15 +40,18 @@ class LoginController extends Controller
     }
 
     /**
+     * Аутентификация пользователя по логину и паролю
+     *
      * @param LoginRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function login(LoginRequest $request)
     {
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
+        // Если класс использует ThrottlesLogins trait, мы можем автоматически записывать
+        // попытки входа в систему для этого приложения. Мы укажем это по имени пользователя и
+        // IP-адресу клиента, делающий эти запросы в этом приложении.
         $this->incrementLoginAttempts($request);
+
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
 
@@ -64,6 +67,8 @@ class LoginController extends Controller
     }
 
     /**
+     * Выход из приложения
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function logout()

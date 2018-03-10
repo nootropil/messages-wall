@@ -9,6 +9,7 @@ interface UserRepository
 {
     /**
      * @param User $model
+     * @return void
      */
     public function add(User $model): void;
 
@@ -17,5 +18,5 @@ interface UserRepository
      *
      * @return string
      */
-    public function nextIdentity() : string;
+    public function nextIdentity(): string;
 }

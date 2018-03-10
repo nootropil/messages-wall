@@ -50,7 +50,7 @@ class RegisterRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Правила валидации
      *
      * @return array
      */
@@ -63,7 +63,7 @@ class RegisterRequest extends FormRequest
     }
 
     /**
-     * Set custom messages for validator errors.
+     * Описание ошибок
      *
      * @return array
      */

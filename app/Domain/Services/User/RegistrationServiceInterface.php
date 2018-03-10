@@ -7,6 +7,7 @@ interface RegistrationServiceInterface
 {
     /**
      * @param array $data
+     * @return void
      */
     public function register(array $data): void;
 }

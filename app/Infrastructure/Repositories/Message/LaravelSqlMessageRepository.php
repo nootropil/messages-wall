@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Infrastructure\Repositories\Message;
 
@@ -28,6 +28,7 @@ final class LaravelSqlMessageRepository implements MessageRepository
 
     /**
      * @param Message $entity
+     * @return void
      */
     public function add(Message $entity): void
     {
@@ -41,9 +42,10 @@ final class LaravelSqlMessageRepository implements MessageRepository
      *
      * @return string
      */
-    public function nextIdentity() : string
+    public function nextIdentity(): string
     {
         $uuidGenerator = new Uuid4Generator();
+
         return $uuidGenerator->generate();
-    }  
+    }
 }

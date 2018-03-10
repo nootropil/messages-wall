@@ -23,11 +23,10 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(MessageReadRepository::class,LaravelSqlMessageReadRepository::class);
-        $this->app->bind(MessageRepository::class,LaravelSqlMessageRepository::class);
+        $this->app->bind(MessageReadRepository::class, LaravelSqlMessageReadRepository::class);
+        $this->app->bind(MessageRepository::class, LaravelSqlMessageRepository::class);
         /* User */
-        $this->app->bind(UserReadRepository::class,LaravelSqlUserReadRepository::class);
-        $this->app->bind(UserRepository::class,LaravelSqlUserRepository::class);
-
+        $this->app->bind(UserReadRepository::class, LaravelSqlUserReadRepository::class);
+        $this->app->bind(UserRepository::class, LaravelSqlUserRepository::class);
     }
 }

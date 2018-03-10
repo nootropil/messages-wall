@@ -7,6 +7,7 @@ interface MessageServiceInterface
 {
     /**
      * @param array $data
+     * @return void
      */
     public function create(array $data): void;
 }

@@ -23,6 +23,8 @@ final class LaravelSqlMessageReadRepository implements MessageReadRepository
     }
 
     /**
+     * Получить отсортированный массив сообщений с именами авторов
+     *
      * @return array
      */
     public function fetchAllAsArrayWithUsername(): array
@@ -32,14 +34,13 @@ final class LaravelSqlMessageReadRepository implements MessageReadRepository
             username,
             body
         FROM ' . LaravelSqlMessageRepository::TABLE_NAME . ' m 
-        INNER JOIN '. LaravelSqlUserRepository::TABLE_NAME .' u 
+        INNER JOIN ' . LaravelSqlUserRepository::TABLE_NAME . ' u 
             ON m.user_id = u.id 
         ORDER BY increment DESC');
         $rows = json_decode(json_encode($rows), true);
 
         return $rows;
     }
-
 
 
 }

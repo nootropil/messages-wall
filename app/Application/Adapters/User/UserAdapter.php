@@ -5,6 +5,12 @@ namespace App\Application\Adapters\User;
 use App\Domain\Models\User as DomainUser;
 use Illuminate\Contracts\Auth\Authenticatable;
 
+/**
+ * Класс адаптер для атутентификации и авторизации с использованием функционала Laravel
+ *
+ * Class UserAdapter
+ * @package App\Application\Adapters\User
+ */
 class UserAdapter implements Authenticatable
 {
     /**

@@ -33,6 +33,8 @@ class RegisterController extends Controller
     }
 
     /**
+     * Регистрация пользователя
+     *
      * @param RegisterRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
