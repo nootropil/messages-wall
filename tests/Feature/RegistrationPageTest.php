@@ -17,5 +17,6 @@ class RegistrationPageTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('<li class=active><a href="/registration">Регистрация</a></li>');
+        $response->assertSee('</form>');
     }
 }

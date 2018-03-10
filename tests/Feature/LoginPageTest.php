@@ -17,5 +17,6 @@ class LoginPageTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('<li class=active><a href="/login">Авторизация</a></li>');
+        $response->assertSee('</form>');
     }
 }

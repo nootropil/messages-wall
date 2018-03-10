@@ -17,5 +17,6 @@ class IndexPageTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('<li class=active><a href="/">Главная</a></li>');
+        $response->assertDontSee('</form>');
     }
 }
