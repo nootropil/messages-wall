@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Domain\Models\Message;
-use App\Domain\Models\User;
 use Tests\TestCase;
 use function Zelenin\Hydrator\createObjectWithoutConstructor;
 use Zelenin\Hydrator\StrategyHydrator;
@@ -40,6 +39,7 @@ class MessageTest extends TestCase
 
     /**
      * Тест всех геттеров
+     *
      * @return void
      */
     public function testGetters()
@@ -51,6 +51,7 @@ class MessageTest extends TestCase
 
     /**
      * Тестируем корректность создания экземпляра юзера при регистрации
+     *
      * @return void
      */
     public function testRegisterNew()
